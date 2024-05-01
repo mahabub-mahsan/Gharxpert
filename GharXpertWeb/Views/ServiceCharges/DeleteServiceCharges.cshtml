@@ -1,0 +1,87 @@
+﻿@model GharXpertWeb.Models.VM.ServiceChargesDeleteVM
+
+<form asp-action="DeleteServiceCharges">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete ServiceCharges</h1>
+        <hr />
+        <input hidden asp-for="ServiceCharges.Id" />
+        <div class="row">
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.Id" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.Id" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.WorkTypeId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.WorkTypeId" disabled class="form-select" asp-items="@Model.WorkTypeList">
+                    <option disabled selecte>--Select WorkType--</option>
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.WorkId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.WorkId" disabled class="form-select" asp-items="@Model.WorkList">
+                    <option disabled selecte>--Select Work--</option>
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.ConstructionTypeId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.ConstructionTypeId" disabled class="form-select" asp-items="@Model.ConstructionTypeList">
+                    <option disabled selecte>--Select ConstructionType--</option>
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.ServiceName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.ServiceName" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.Price" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.Price" disabled class="form-check-label" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.UserId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.UserId" disabled class="form-control" />
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexServiceCharges" asp-controller="ServiceCharges" class="btn-primary btn form-control">Back To List</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

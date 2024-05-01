@@ -1,0 +1,91 @@
+﻿@model IEnumerable<GharXpertWeb.Models.Dto.ContactOurExpertDTO>
+<br />
+<div class=" container p-4 border">
+    <div class=" row pb-2">
+        <div class="col">
+            <h1 class="text-primary">ContactOurExpert List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-contoller="Customer" asp-action="CreateContactOurExpert" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New ContactOurExpert</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        CName
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Mobile
+                    </th>
+                    <th>
+                        Landline
+                    </th>
+                    <th>
+                        ConstructionWork
+                    </th>
+                    <th>
+                        ElectricalWork
+                    </th>
+                    <th>
+                        PlumbingWork
+                    </th>
+                    <th>
+                        Doors
+                    </th>
+                    <th>
+                        Windows
+                    </th>
+                    <th>
+                        Tiles
+                    </th>
+                    <th>
+                        Granite
+                    </th>
+                    <th>
+                        FalseCeiling
+                    </th>
+                    <th>
+                        Paint
+                    </th>
+                    <th>
+                        MS_And_SS_Work
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Mobile</td>
+                        <td>@item.Landline</td>
+                        <td>@item.ConstructionWork</td>
+                        <td>@item.ElectricalWork</td>
+                        <td>@item.PlumbingWork</td>
+                        <td>@item.Doors</td>
+                        <td>@item.Windows</td>
+                        <td>@item.Tiles</td>
+                        <td>@item.Granite</td>
+                        <td>@item.FalseCeiling</td>
+                        <td>@item.Paint</td>
+                        <td>@item.MS_And_SS_Work</td>
+                        <td>
+                            <a asp-contoller="ContactOurExpert" asp-action="UpdateCustomer" asp-route-customerId="@item.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i> </a>
+                            <a asp-contoller="ContactOurExpert" asp-action="DeleteCustomer" asp-route-customerId="@item.Id" class="btn btn-danger"><i class="bi bi-trash-fill"></i> </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

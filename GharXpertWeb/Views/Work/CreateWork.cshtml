@@ -1,0 +1,87 @@
+﻿@model GharXpertWeb.Models.VM.WorkCreateVM
+<form asp-action="CreateWork">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Create Work</h1>
+        <hr />
+
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Work.Id" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.Id" class="form-control" />
+                <span asp-validation-for="Work.Id" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Work.WorkName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.WorkName" class="form-control" />
+                <span asp-validation-for="Work.WorkName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Work.WorkDescription" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.WorkDescription" class="form-control" />
+                <span asp-validation-for="Work.WorkDescription" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Work.WorkImage" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.WorkImage" class="form-control" rows="5" />
+                <span asp-validation-for="Work.WorkImage" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Work.WorkIsActive" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.WorkIsActive" class="form-check-label" />
+                <span asp-validation-for="Work.WorkIsActive" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Work.UserId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="Work.UserId" class="form-control" rows="5" />
+                <span asp-validation-for="Work.UserId" class="text-danger"></span>
+            </div>
+
+            @* <div class="col-10 pb-3">
+                <select asp-for="Work.UserId" class="form-select" asp-items="@Model.UserList">
+                    <option disabled selecte>--Select User--</option>
+                </select>
+                <span asp-validation-for="Work.UserId" class="text-danger"></span>
+            </div> *@
+
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexWork" asp-controller="Work"class="btn-primary btn form-control">Back To List</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Create" class="btn-success form-control"/>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

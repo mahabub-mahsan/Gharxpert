@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GharXpertWeb.Models.Dto.ServiceChargesDTO>
+<br />
+<div class=" container p-4 border">
+    <div class=" row pb-2">
+        <div class="col">
+            <h1 class="text-primary">ServiceCharges List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-contoller="ServiceCharges" asp-action="CreateServiceCharges" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New ServiceCharges</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Service Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Work Type ID
+                    </th>
+                    <th>
+                        Work ID
+                    </th>
+                    <th>
+                        Construction Type ID
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ServiceName</td>
+                        <td>@item.Price</td>
+                        <td>@item.WorkTypeId</td>
+                        <td>@item.WorkId</td>
+                        <td>@item.ConstructionTypeId</td>
+                        <td>
+                            <a asp-contoller="ServiceCharges" asp-action="UpdateServiceCharges" asp-route-serviceChargesId="@item.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i> </a>
+                            <a asp-contoller="ServiceCharges" asp-action="DeleteServiceCharges" asp-route-serviceChargesId="@item.Id" class="btn btn-danger"><i class="bi bi-trash-fill"></i> </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

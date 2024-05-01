@@ -1,0 +1,75 @@
+﻿@model GharXpertWeb.Models.VM.WorkTypeDeleteVM
+
+<form asp-action="DeleteWorkType">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete Work Type</h1>
+        <hr />
+        <input hidden asp-for="WorkType.Id" />
+        <div class="row">
+
+            <div class="col-2">
+                <label asp-for="WorkType.Id" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.Id" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkID" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="WorkType.WorkID" disabled class="form-select" asp-items="@Model.WorkList">
+                    <option disabled selecte>--Select Work--</option>
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.Work_Type" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.Work_Type" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkDesc" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <textarea asp-for="WorkType.WorkDesc" readonly class="form-control" rows="5"></textarea>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkImage" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.WorkImage" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.IsActive" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.IsActive" disabled class="form-check-label" />
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexWorkType" asp-controller="WorkType" class="btn-primary btn form-control">Back To List</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

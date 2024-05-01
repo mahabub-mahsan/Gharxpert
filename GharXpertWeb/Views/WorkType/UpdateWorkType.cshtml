@@ -1,0 +1,82 @@
+﻿@model GharXpertWeb.Models.VM.WorkTypeUpdateVM
+
+<form asp-action="UpdateWorkType">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Update Work Type</h1>
+        <hr />
+        <input hidden asp-for="WorkType.WorkID" />
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.Id" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.Id" class="form-control" />
+                <span asp-validation-for="WorkType.Id" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkID" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="WorkType.WorkID" class="form-select" asp-items="@Model.WorkList">
+                    <option disabled selecte>--Select Work--</option>
+                </select>
+                <span asp-validation-for="WorkType.WorkID" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.Work_Type" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.Work_Type" class="form-control" />
+                <span asp-validation-for="WorkType.Work_Type" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkDesc" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <textarea asp-for="WorkType.WorkDesc" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="WorkType.WorkDesc" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.WorkImage" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.WorkImage" class="form-control" />
+                <span asp-validation-for="WorkType.WorkImage" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="WorkType.IsActive" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="WorkType.IsActive" class="form-check-label" />
+                <span asp-validation-for="WorkType.IsActive" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexWorkType" asp-controller="WorkType" class="btn-primary btn form-control">Back To List</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Update" class="btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

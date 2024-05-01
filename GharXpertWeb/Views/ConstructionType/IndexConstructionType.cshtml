@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GharXpertWeb.Models.Dto.ConstructionTypeDTO>
+<br />
+<div class=" container p-4 border">
+    <div class=" row pb-2">
+        <div class="col">
+            <h1 class="text-primary">ConstructionType List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-contoller="ConstructionType" asp-action="CreateConstructionType" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New ConstructionType</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Cno
+                    </th>
+                    <th>
+                        Construction Type
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Cno</td>
+                        <td>@item.Ctype</td>
+                        <td>
+                            <a asp-contoller="ConstructionType" asp-action="UpdateConstructionType" asp-route-constructionTypeId="@item.Cno" class="btn btn-success"><i class="bi bi-pencil-square"></i> </a>
+                            <a asp-contoller="ConstructionType" asp-action="DeleteConstructionType" asp-route-constructionTypeId="@item.Cno" class="btn btn-danger"><i class="bi bi-trash-fill"></i> </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

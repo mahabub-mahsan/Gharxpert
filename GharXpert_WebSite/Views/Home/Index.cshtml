@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="container">
+        <table id="table1" class="table table-dark">
+            <tr><th>ID</th><th>WorkName</th><th>WorkDesc</th><th>WorkImage</th><th>WorkIActive</th></tr>
+        </table>
+    </div>
+
+    @*<h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            GetData();
+        })
+
+        function GetData() {
+            $.ajax({
+                url: "https://localhost:7001/api/WorkAPI",
+                method: "GET",
+                success: function (res) {
+                    var tableString = "";
+                    $.each(res, function (index, value) {
+                        tableString += "<tr><td>" + value.Id + "</td><td>" + value.WorkName + "</td><td>" + value.WorkDesc + "</td><td>" + value.WorkImage + "</td><td>" + value.WorkIsActive + "</td></tr>";
+                    });
+                    $("#table1").append(tableString);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        success: function(res) {
+            var tableString = "";
+            $.each(res, function (index, value) {
+                tableString += "<tr><td>" + value.Id + "</td><td>" + value.WorkName + "</td><td>" + value.WorkDesc + "</td><td>" + value.WorkImage + "</td><td>" + value.WorkIsActive + "</td></tr>";
+            });
+            $("#table1").append(tableString);
+
+            error: function(error) {
+                console.log(error);
+            }
+    </script>
+}

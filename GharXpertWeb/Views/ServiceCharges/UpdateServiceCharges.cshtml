@@ -1,0 +1,95 @@
+﻿@model GharXpertWeb.Models.VM.ServiceChargesUpdateVM
+
+<form asp-action="UpdateServiceCharges">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Update ServiceCharges</h1>
+        <hr />
+        <input hidden asp-for="ServiceCharges.WorkTypeId" />
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.Id" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.Id" class="form-control" />
+                <span asp-validation-for="ServiceCharges.Id" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.WorkTypeId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.WorkTypeId" class="form-select" asp-items="@Model.WorkTypeList">
+                    <option disabled selecte>--Select WorkType--</option>
+                </select>
+                <span asp-validation-for="ServiceCharges.WorkTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.WorkId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.WorkId" class="form-select" asp-items="@Model.WorkList">
+                    <option disabled selecte>--Select Work--</option>
+                </select>
+                <span asp-validation-for="ServiceCharges.WorkId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.ConstructionTypeId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <select asp-for="ServiceCharges.ConstructionTypeId" class="form-select" asp-items="@Model.ConstructionTypeList">
+                    <option disabled selecte>--Select ConstructionType--</option>
+                </select>
+                <span asp-validation-for="ServiceCharges.ConstructionTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.ServiceName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.ServiceName" class="form-control" />
+                <span asp-validation-for="ServiceCharges.ServiceName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.Price" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.Price" class="form-check-label" />
+                <span asp-validation-for="ServiceCharges.Price" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ServiceCharges.UserId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+
+            <div class="col-10 pb-3">
+                <input asp-for="ServiceCharges.UserId" class="form-control" />
+                <span asp-validation-for="ServiceCharges.UserId" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexServiceCharges" asp-controller="ServiceCharges" class="btn-primary btn form-control">Back To List</a>
+            </div>
+
+            <div class="col-5">
+                <input type="submit" value="Update" class="btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

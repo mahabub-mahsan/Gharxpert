@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GharXpertWeb.Models.Dto.WorkTypeDTO>
+<br />
+<div class=" container p-4 border">
+    <div class=" row pb-2">
+        <div class="col">
+            <h1 class="text-primary">WorkType List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-contoller="Work" asp-action="CreateWorkType" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New WorkType</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Work Type
+                    </th>
+                    <th>
+                        Work Desc
+                    </th>
+                    <th>
+                        Work Image
+                    </th>
+                    <th>
+                        Work IsActive
+                    </th>
+                    <th>
+                        Work ID
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Work_Type</td>
+                        <td>@item.WorkDesc</td>
+                        <td>@item.WorkImage</td>
+                        <td>@item.IsActive</td>
+                        <td>@item.WorkID</td>
+                        <td>
+                            <a asp-contoller="Work" asp-action="UpdateWorkType" asp-route-workTypeId="@item.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i> </a>
+                            <a asp-contoller="Work" asp-action="DeleteWorkType" asp-route-workTypeId="@item.Id" class="btn btn-danger"><i class="bi bi-trash-fill"></i> </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
