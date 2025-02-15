@@ -103,7 +103,7 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
-    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
 
 
@@ -117,9 +117,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("corspolicy");
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("corspolicy");
+
 
 app.MapControllers();
 
